@@ -32,7 +32,33 @@
 *	[ input 5]: 86399
 *	[output 5]: 23:59:59
 */
-
+int time(int number, int xx) {
+	int t = 0;
+	if (number >= xx) {
+t = number / xx;
+	}
+	return t;
+}
 string taskX(int number) {
-	return "error";
+	if (number < 0) {
+		return "error";
+	}
+	int h = time(number, 3600);
+	number = number <= 3600 ? number % 3600 : number;
+	int m = time(number, 60);
+	number = number <= 60?number%60:number;
+	int s = number;
+	string hh = to_string(h) + ":";
+	string mm = to_string(m) + ":";
+	string ss = to_string(s);
+
+	if (m < 10) {
+		mm = "0" + to_string(m) + ":";
+	}
+
+	if (s < 10) {
+		ss = "0" + to_string(s);
+	}
+
+	return hh + mm + ss;
 }
