@@ -33,10 +33,15 @@
 *	[ input 5]: 19 0 23
 *	[output 5]: 0
 */
-
+int num(int n) {
+	return n % 2 == 0 ? n / 2 : n / 2 + 1;
+}
 int task01(int a, int b, int c) {
 	if (a <= 0 || b <= 0 || c <= 0) {
-	return 0;
+		return 0;
 	}
-	return (a + b + c) % 2 == 0 ? (a + b + c) / 2 : ((a + b + c) / 2) + 1;
+	a = num(a);
+	b = num(b);
+	c = num(c);
+	return a + b + c;
 }
